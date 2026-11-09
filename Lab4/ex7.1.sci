@@ -1,4 +1,3 @@
-
 clc;
 clear;
 clf();
@@ -8,10 +7,6 @@ h = [1, 0, -1, -1, 1];
 
 N = length(x);
 M = length(h);
-
-if N <> M then
-    error("N and M must be equal.");
-end
 
 y = zeros(1, N);
 

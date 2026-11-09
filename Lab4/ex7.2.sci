@@ -1,4 +1,3 @@
-
 clc;
 clear;
 clf();
@@ -9,14 +8,10 @@ h = [1, 0, -1, -1, 1];
 N = length(x);
 M = length(h);
 
-if N <> M then
-    error("N and M must be equal.");
-end
-
-H = zeros(N, N);
+C = zeros(N, M);
 
 for n = 1:N
-    for k = 1:N
+    for k = 1:M
         ix = n - k + 1;
 
         while ix < 1
@@ -27,14 +22,14 @@ for n = 1:N
             ix = ix - N;
         end
 
-        H(n, k) = x(ix);
+        C(n, k) = x(ix);
     end
 end
 
-y_matrix = H * h';
+y_matrix = C * h';
 y = y_matrix';
 
-disp(H, "Circular convolution matrix:");
+disp(C, "Circular convolution matrix:");
 disp(y_matrix, "Circular convolution:");
 
 expected = [4; -4; -3; 0; 3];
